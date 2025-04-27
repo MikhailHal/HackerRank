@@ -41,7 +41,7 @@ def findSubstring(s, k):
             numOfVowelsInNewWindow += 1
 
         # ウィンドウのスタートの更新
-        newWindow = removeFirstInStr(newWindow)
+        newWindow = newWindow[left+1:right+1]
         if s[left] in vowels:
             numOfVowelsInNewWindow -= 1
         left += 1
@@ -53,11 +53,6 @@ def findSubstring(s, k):
             ans = newWindow
     print(ans)
     return ans
-
-def removeFirstInStr(s: str):
-    s_list = list(s)
-    s_list.pop(0)
-    return ''.join(s_list)
 
 findSubstring("eiuaooo", 4)
 # findSubstring("aeiouia", 3)
