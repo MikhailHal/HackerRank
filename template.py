@@ -11,3 +11,23 @@ list(map(int, input().split()))
 # 最初の行で行数nを取得し、次のn行を処理
 n = int(input())
 lines = [input() for _ in range(n)]
+
+# LinkedList
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+
+# LinkedListの生成
+from typing import Optional
+def create_linked_list(elements) -> Optional[ListNode]:
+    if not elements:
+        return None
+    
+    head = ListNode(elements[0])
+    current = head
+
+    for element in elements[1:]:
+        current.next = ListNode(element)
+        current = current.next
+    return head
